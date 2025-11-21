@@ -20,7 +20,7 @@ fi
 cd "$TEMP_DIR"
 FILE_NAME=$(grep '&Output:' "$CURR_DIR/$FILE" | cut -d: -f2)
 if [ -z "$FILE_NAME" ]; then
-   echo "Can't find file '&Output' ">&2
+   echo "Can't find comment '&Output' ">&2
    exit 2
 fi
 if ! g++ "$CURR_DIR/$FILE" -o "$FILE_NAME"; then
@@ -28,11 +28,4 @@ if ! g++ "$CURR_DIR/$FILE" -o "$FILE_NAME"; then
     exit 3
 fi
 mv "$FILE_NAME" "$CURR_DIR"
-
 echo "File was assembled in a temporary directory: $TEMP_DIR"
-ls -l "$TEMP_DIR"
-
-cd / || exit 4
-rm -rf "$TEMP_DIR"
-
-
