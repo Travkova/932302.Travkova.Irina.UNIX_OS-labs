@@ -32,7 +32,7 @@ mv "$FILE_NAME" "$CURR_DIR"
 echo "File was assembled in a temporary directory: $TEMP_DIR"
 ls -l "$TEMP_DIR"
 
-cd / || exit 1
+cd / || exit 4
 rm -rf "$TEMP_DIR"
 
 
