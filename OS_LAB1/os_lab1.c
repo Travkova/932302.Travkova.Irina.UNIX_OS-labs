@@ -5,8 +5,8 @@
 //условные переменные
 pthread_cond_t cond1 = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
-int ready = 0;
-int running = 1; //флаг выполнения
+int ready = 0;//флаг состояния события
+int running = 1; //флаг выполнения программы
 
 //функция-поставщик
 void* provider(void* arg) {
