@@ -114,7 +114,7 @@ int main() {
         //обработка данных от клиента
         if (client_socket != -1 && FD_ISSET(client_socket, &fds)) {
             char buffer[BUFFER_SIZE];
-            ssize_t bytes_read = recv(client_socket, buffer, sizeof(buffer), 0);
+            ssize_t bytes_read = read(client_socket, buffer, sizeof(buffer));
 
             if (bytes_read > 0) {
                 printf("Received %zd bytes from client\n", bytes_read);
@@ -141,3 +141,4 @@ int main() {
     close(server_socket);
     return 0;
 }
+
